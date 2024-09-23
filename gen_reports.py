@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 # Load the data into a DataFrame
-data = pd.read_csv('./sample_jtls/results.jtl')
+data = pd.read_csv('reports/results.jtl')
 
 # Convert timeStamp from milliseconds to a readable datetime format
 data['timeStamp'] = pd.to_datetime(data['timeStamp'], unit='ms')
