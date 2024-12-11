@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test Analysis</title>
+    <style>
+        .chart-container {
+            width: 80%;
+            height: 400px;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Performance Test Results Summary</h1>
+    <p>This report provides a high-level summary of the performance test results, highlighting potential bottlenecks and trends in the data.</p>
+
+    <h2>Latency Distribution Chart</h2>
+    <div class="chart-container">
+        <canvas id="latencyChart"></canvas>
+    </div>
+
+    <script>
+        // Data for the latency chart
+        const latencyData = {
+            labels: ['200 OK', '301 Moved Permanently'],
+            datasets: [{
+                label: 'Average Latency (ms)',
+                data: [1400, 2000], // Adjust these values according to actual data
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Latency chart configuration
+        const latencyConfig = {
+            type: 'bar',
+            data: latencyData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Latency (ms)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Response Code'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        };
+
+        // Render the latency chart
+        const latencyChart = new Chart(
+            document.getElementById('latencyChart'),
+            latencyConfig
+        );
+    </script>
+</body>
+</html>

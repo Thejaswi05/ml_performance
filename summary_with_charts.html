@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test Summary</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; margin: 40px; }
+        h1 { color: #2a9d8f; }
+        h2 { color: #e76f51; }
+        .summary { margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #2a9d8f; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Performance Test Summary</h1>
+    <div class="summary">
+        <p><strong>Tested URL:</strong> <code>https://reqres.in/api/users?page=2</code></p>
+        <p><strong>Total Requests:</strong> 30</p>
+        <p><strong>Response Codes Observed:</strong> 200 (OK), 301 (Moved Permanently)</p>
+        <p><strong>Thread Groups:</strong> Thread Group 1-1 to Thread Group 1-10</p>
+    </div>
+
+    <h2>Key Observations:</h2>
+    <ul>
+        <li>A significant number of requests result in HTTP 301 responses (redirection).</li>
+        <li>There is high variability in response times, with a range from 400 ms to 2600 ms.</li>
+        <li>All requests were marked as successful, with no failures recorded.</li>
+        <li>Redirection requests consistently took longer to process.</li>
+    </ul>
+
+    <h2>Performance Metrics:</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Fastest Response Time</td>
+            <td>402 ms</td>
+        </tr>
+        <tr>
+            <td>Slowest Response Time</td>
+            <td>2594 ms</td>
+        </tr>
+        <tr>
+            <td>Average Response Time (200 OK)</td>
+            <td>~1500 ms</td>
+        </tr>
+        <tr>
+            <td>Average Response Time (301 Moved Permanently)</td>
+            <td>~2000 ms</td>
+        </tr>
+        <tr>
+            <td>Standard Deviation (Response Times)</td>
+            <td>~500 ms</td>
+        </tr>
+    </table>
+
+    <h2>Conclusion:</h2>
+    <p>The test indicates significant performance variability, with redirection (301) responses taking more time than direct (200) responses. While there are no failures, optimizing the handling of redirections could significantly reduce response times and improve user experience.</p>
+</body>
+</html>
